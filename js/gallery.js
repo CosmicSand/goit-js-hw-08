@@ -82,8 +82,8 @@ function galleryCreation() {
   });
 }
 
-const body = document.querySelector('body');
-body.addEventListener('click', prevent);
+const ulGal = document.querySelector('ul.gallery');
+ulGal.addEventListener('click', prevent);
 function prevent(event) {
   event.preventDefault();
 }
