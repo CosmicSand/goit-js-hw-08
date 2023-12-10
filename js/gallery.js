@@ -49,25 +49,12 @@ const images = [
 ];
 
 const imgList = document.querySelector('.gallery');
-const { preview, original, description } = images;
-console.log(original);
 
-const listElement = `<li class="gallery-item">
-  <a class="gallery-link" href="${original}">
-    <img
-      class="gallery-image"
-      src="${preview}"
-      data-source="${original}"
-      alt="${description}"
-    />
-  </a>
-</li>`;
+// ======================= Gallery creation ===========================
 
 function galleryCreation() {
   images.forEach(el => {
     const { preview, original, description } = el;
-    console.log(original);
-
     const listElement = `<li class="gallery-item">
   <a class="gallery-link" href="${original}">
     <img
@@ -82,10 +69,25 @@ function galleryCreation() {
   });
 }
 
-const ulGal = document.querySelector('ul.gallery');
-ulGal.addEventListener('click', prevent);
-function prevent(event) {
-  event.preventDefault();
-}
-
 galleryCreation();
+
+// ======================= Modal window opening ===========================
+
+let instance;
+imgList.addEventListener('click', event => {
+  event.preventDefault();
+  instance = basicLightbox.create(
+    `
+		<img width="1400" height="900" src="${event.target.dataset.source}">
+	`
+  );
+  instance.show();
+});
+
+// ======================= Modal window closing ===========================
+
+imgList.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    instance.close();
+  }
+});
