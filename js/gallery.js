@@ -78,7 +78,7 @@ imgList.addEventListener('click', event => {
   event.preventDefault();
   instance = basicLightbox.create(
     `
-		<img width="1400" height="900" src="${event.target.dataset.source}">
+		<img width="1112" height="640" src="${event.target.dataset.source}">
 	`
   );
   instance.show();
