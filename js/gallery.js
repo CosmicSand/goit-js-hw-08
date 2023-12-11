@@ -71,9 +71,9 @@ function galleryCreation() {
 
 galleryCreation();
 
-// ======================= Modal window opening ===========================
+// ======================= Modal window opening and closing ================
 const imgItem = document.querySelector('.gallery-image');
-// let instance;
+
 imgList.addEventListener('click', event => {
   event.preventDefault();
 
