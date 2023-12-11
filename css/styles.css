@@ -66,7 +66,7 @@ a {
 }
 
 .gallery-item {
-  width: calc(100% / 3 - 48px);
+  width: calc((100% - 48px) / 3);
   overflow: hidden;
 
   background-color: #e0e0e0;

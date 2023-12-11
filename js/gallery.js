@@ -72,6 +72,7 @@ function galleryCreation() {
 galleryCreation();
 
 // ======================= Modal window opening and closing ================
+
 const imgItem = document.querySelector('.gallery-image');
 
 imgList.addEventListener('click', event => {
@@ -79,25 +80,24 @@ imgList.addEventListener('click', event => {
 
   if (event.target.nodeName !== 'IMG') {
     return;
-  } else {
-    const instance = basicLightbox.create(
-      `
-		<img width="1112" height="640" src="${event.target.dataset.source}">
-	`,
-      {
-        onShow: () => {
-          document.addEventListener('keydown', escapeListener);
-        },
-        onClose: () => {
-          document.removeEventListener('keydown', escapeListener);
-        },
-      }
-    );
-    function escapeListener(event) {
-      if (event.key === 'Escape') {
-        instance.close();
-      }
-    }
-    instance.show();
   }
+  const instance = basicLightbox.create(
+    `
+		<img width="1112" height="640" src="${event.target.dataset.source}" alt="${event.target.alt}">
+	`,
+    {
+      onShow: () => {
+        document.addEventListener('keydown', escapeListener);
+      },
+      onClose: () => {
+        document.removeEventListener('keydown', escapeListener);
+      },
+    }
+  );
+  function escapeListener(event) {
+    if (event.key === 'Escape') {
+      instance.close();
+    }
+  }
+  instance.show();
 });
