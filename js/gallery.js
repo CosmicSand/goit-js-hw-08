@@ -72,24 +72,29 @@ function galleryCreation() {
 galleryCreation();
 
 // ======================= Modal window opening ===========================
-
+const imgItem = document.querySelector('.gallery-image');
 let instance;
 imgList.addEventListener('click', event => {
   event.preventDefault();
-  instance = basicLightbox.create(
-    `
+
+  if (event.target.nodeName !== 'IMG') {
+    return;
+  } else {
+    instance = basicLightbox.create(
+      `
 		<img width="1112" height="640" src="${event.target.dataset.source}">
 	`,
-    {
-      onShow: () => {
-        imgList.addEventListener('keydown', EventListener);
-      },
-      onClose: () => {
-        imgList.removeEventListener('keydown', EventListener);
-      },
-    }
-  );
-  instance.show();
+      {
+        onShow: () => {
+          imgList.addEventListener('keydown', EventListener);
+        },
+        onClose: () => {
+          imgList.removeEventListener('keydown', EventListener);
+        },
+      }
+    );
+    instance.show();
+  }
 });
 
 // ======================= Modal window closing ===========================
