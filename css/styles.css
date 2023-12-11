@@ -77,5 +77,5 @@ a {
   transform: scale(1.04);
 }
 .gallery-link {
-  cursor: url(./images/hand.svg), pointer;
+  cursor: url(/images/hand.svg), pointer;
 }
