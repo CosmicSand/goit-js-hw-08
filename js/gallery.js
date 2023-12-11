@@ -79,15 +79,23 @@ imgList.addEventListener('click', event => {
   instance = basicLightbox.create(
     `
 		<img width="1112" height="640" src="${event.target.dataset.source}">
-	`
+	`,
+    {
+      onShow: () => {
+        imgList.addEventListener('keydown', EventListener);
+      },
+      onClose: () => {
+        imgList.removeEventListener('keydown', EventListener);
+      },
+    }
   );
   instance.show();
 });
 
 // ======================= Modal window closing ===========================
 
-imgList.addEventListener('keydown', event => {
+function EventListener(event) {
   if (event.key === 'Escape') {
     instance.close();
   }
-});
+}
