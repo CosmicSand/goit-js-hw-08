@@ -53,6 +53,11 @@ a {
   color: inherit;
 }
 
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 24px 156px;
+}
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -61,16 +66,14 @@ a {
 }
 
 .gallery-item {
-  width: fit-content;
+  width: calc(100% / 3 - 48px);
   overflow: hidden;
 
   background-color: #e0e0e0;
-  position: relative;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .gallery-image {
-  width: 360px;
-  height: 200px;
+  width: 100%;
 }
 
 .gallery-item:hover {
