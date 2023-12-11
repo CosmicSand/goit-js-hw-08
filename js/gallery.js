@@ -86,10 +86,10 @@ imgList.addEventListener('click', event => {
 	`,
       {
         onShow: () => {
-          imgList.addEventListener('keydown', eventListener);
+          document.addEventListener('keydown', eventListener);
         },
         onClose: () => {
-          imgList.removeEventListener('keydown', eventListener);
+          document.removeEventListener('keydown', eventListener);
         },
       }
     );
