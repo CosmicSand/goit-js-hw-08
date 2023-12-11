@@ -76,6 +76,3 @@ a {
 .gallery-item:hover {
   transform: scale(1.04);
 }
-.gallery-link {
-  cursor: url(hand.svg), pointer;
-}
