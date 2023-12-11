@@ -54,9 +54,9 @@ a {
 }
 
 .container {
-  max-width: 1440px;
+  max-width: 1128px;
   margin: 0 auto;
-  padding: 24px 156px;
+  padding: 24px 0;
 }
 .gallery {
   display: flex;
