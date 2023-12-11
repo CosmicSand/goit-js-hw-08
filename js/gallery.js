@@ -53,7 +53,7 @@ const imgList = document.querySelector('.gallery');
 // ======================= Gallery creation ===========================
 
 function galleryCreation() {
-  images.forEach(el => {
+  images.map(el => {
     const { preview, original, description } = el;
     const listElement = `<li class="gallery-item">
   <a class="gallery-link" href="${original}">
@@ -80,7 +80,7 @@ imgList.addEventListener('click', event => {
   if (event.target.nodeName !== 'IMG') {
     return;
   } else {
-    instance = basicLightbox.create(
+    const instance = basicLightbox.create(
       `
 		<img width="1112" height="640" src="${event.target.dataset.source}">
 	`,
@@ -93,14 +93,11 @@ imgList.addEventListener('click', event => {
         },
       }
     );
+    function escapeListener(event) {
+      if (event.key === 'Escape') {
+        instance.close();
+      }
+    }
     instance.show();
   }
 });
-
-// ======================= Modal window closing ===========================
-
-function escapeListener(event) {
-  if (event.key === 'Escape') {
-    instance.close();
-  }
-}
