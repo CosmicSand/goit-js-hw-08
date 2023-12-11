@@ -86,10 +86,10 @@ imgList.addEventListener('click', event => {
 	`,
       {
         onShow: () => {
-          imgList.addEventListener('keydown', EventListener);
+          imgList.addEventListener('keydown', eventListener);
         },
         onClose: () => {
-          imgList.removeEventListener('keydown', EventListener);
+          imgList.removeEventListener('keydown', eventListener);
         },
       }
     );
@@ -99,7 +99,7 @@ imgList.addEventListener('click', event => {
 
 // ======================= Modal window closing ===========================
 
-function EventListener(event) {
+function eventListener(event) {
   if (event.key === 'Escape') {
     instance.close();
   }
