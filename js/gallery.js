@@ -65,15 +65,13 @@ function galleryCreation() {
     />
   </a>
 </li>`;
-    imgList.insertAdjacentHTML('afterbegin', listElement);
+    imgList.insertAdjacentHTML('beforeend', listElement);
   });
 }
 
 galleryCreation();
 
 // ======================= Modal window opening and closing ================
-
-const imgItem = document.querySelector('.gallery-image');
 
 imgList.addEventListener('click', event => {
   event.preventDefault();
