@@ -73,6 +73,12 @@ galleryCreation();
 
 // ======================= Modal window opening and closing ================
 
+function escapeListener(event) {
+  if (event.key === 'Escape') {
+    this.close();
+  }
+}
+
 imgList.addEventListener('click', event => {
   event.preventDefault();
 
@@ -81,21 +87,16 @@ imgList.addEventListener('click', event => {
   }
   const instance = basicLightbox.create(
     `
-		<img width="1112" height="640" src="${event.target.dataset.source}" alt="${event.target.alt}">
-	`,
+        <img width="1112" height="640" src="${event.target.dataset.source}" alt="${event.target.alt}">
+    `,
     {
       onShow: () => {
-        document.addEventListener('keydown', escapeListener);
+        document.addEventListener('keydown', escapeListener.bind(instance));
       },
       onClose: () => {
         document.removeEventListener('keydown', escapeListener);
       },
     }
   );
-  function escapeListener(event) {
-    if (event.key === 'Escape') {
-      instance.close();
-    }
-  }
   instance.show();
 });
